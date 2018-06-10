@@ -1,0 +1,52 @@
+<div class="col-sm-12 page">
+  <!-- loading child -->
+  <app-loading #myloading></app-loading>
+  <div class="col-sm-6 col-sm-push-3">
+    <h1 class="title"> عيدية لأغلى ناسك </h1>
+    <p class="lead">احصل على بطاقة تهنئة خاصة بك وشارك الجميع فرحتك</p>
+    <main>
+      <section>
+        <label for="selectCardTemplate">اختر التصميم المناسب لك:</label>
+        <select name="" id="selectCardTemplate" (change)="updateImg()" [(ngModel)]="selectedCardTemplate">
+          <option *ngFor="let i of cardTemplateList" [ngValue]="i">{{i.name}}</option>
+        </select>
+      </section>
+
+      <section id="card">
+        <div class="card-container" id="card-container">
+          <img [@imgState]="stateName" id="eidCard" alt="Angular Logo" [src]="imgSrc">
+          <div class="nameOnCard" id="nameOnCard" [ngClass]="{'eidGreenCard': selectedCardTemplate.value==='greenCard','eidRedCard': selectedCardTemplate.value==='redCard' }">{{name}}</div>
+        </div>
+      </section>
+
+      <section class="card-form">
+        <input type="text" name="name" id="name" maxlength="30" [(ngModel)]="name" placeholder="اهداء من">
+        <button (click)="download()" [disabled]="!name"> 
+          <span>بدء التنفيذ</span> 
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <p [hidden]="!isDownloading">جاري التحميل ...</p>
+        <div class="row">
+          <a [href]="downloadImgUrl" *ngIf="downloadImgUrl" download="eid-card.png" id="link" target="_blank">
+            <span>تحميل البطاقة </span>
+            <i class="fas fa-download"></i>
+
+          </a>
+        </div>
+      </section>
+
+
+      <section id="row">
+        <div class="col-sm-12">
+          <canvas style="display: none;" id="canvas"></canvas>
+        </div>
+
+      </section>
+
+    </main>
+
+
+  </div>
+
+</div>
+

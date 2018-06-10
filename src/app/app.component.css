@@ -1,0 +1,198 @@
+  @keyframes fadeInPage {
+    0% {
+      transform: rotate(0) translateY(-20%);
+      opacity: 0;
+    }
+    100% {
+      transform: rotate(0) translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .page {
+    animation: fadeInPage 2s forwards 0s ease-in-out;
+  }
+
+  h1,
+  p,
+  section {
+    font-style: italic;
+    text-align: center;
+    color: #5DC2BB;
+  }
+
+  p {
+    clear: both;
+    color: #333;
+    margin: 4px auto;
+  }
+
+  h1.title {
+    margin-bottom: 5px;
+    font-size: 3em;
+  }
+
+  p.lead {
+    font-size: 1.3em;
+  }
+
+  main {
+    margin: 30px auto;
+  }
+
+  .card-container {
+    margin: auto;
+    max-width: 500px;
+    position: relative;
+  }
+
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    .card-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+    .nameOnCard {
+      top: 60% !important;
+      right: 15%;
+    }
+    .eidGreenCard {
+      top: 72.5% !important;
+      right: 5% !important;
+      font-size: 1.3em !important;
+    }
+    .eidRedCard {
+      top: 72.5% !important;
+      right: 25% !important;
+      font-size: 15px !important;
+    }
+  }
+
+  @media screen and (device-width: 360px) and (device-height: 640px) {
+    .card-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+    }
+    .nameOnCard {
+      top: 60% !important;
+      right: 15% !important;
+    }
+    .eidGreenCard {
+      top: 72.5% !important;
+      right: 8% !important;
+    }
+    .eidRedCard {
+      top: 72.5% !important;
+      right: 25% !important;
+      font-size: 15px !important;
+    }
+  }
+
+  /* Ipad */
+
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+    .eidGreenCard {
+      right: 5% !important;
+    }
+    .eidRedCard {
+      right: 25% !important;
+      font-size: 1.4em !important;
+    }
+  }
+
+  #card img {
+    position: relative;
+    max-width: 100%;
+  }
+
+  .eidRedCard {
+    color: #556b2f !important;
+  }
+
+  .nameOnCard {
+    position: absolute;
+    top: 72.5%;
+    right: 15%;
+    color: #333;
+    font-size: 1.8em;
+    font-weight: bold;
+    width: 50%;
+    max-width: 180px;
+    text-align: center;
+    padding: 0 2px;
+    color: #333;
+    word-wrap: break-word;
+    overflow: hidden;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+  }
+
+  .eidRedCard {
+    right: 30%;
+  }
+
+  .card-form {
+    clear: both;
+    display: block;
+    padding-top: 20px;
+    border-top: 2px solid #f9f9f9;
+  }
+
+  input,
+  select {
+    padding: 8px;
+    margin: 10px auto;
+    border: none;
+    border-bottom: 1px solid #5DC2BB;
+    color: #444;
+    border-radius: 0;
+    min-width: 200px;
+    background: transparent;
+    -webkit-appearance: none;
+  }
+
+  input:focus,
+  select:focus {
+    border: none;
+    border: 1px solid #5DC2BB;
+    outline: 0;
+  }
+
+  section label {
+    color: #444;
+    font-size: 1.2rem;
+  }
+
+  button,
+  #link {
+    padding: 8px;
+    border-radius: 0;
+    background-color: #5DC2BB;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    font-style: italic;
+    transition: .4s ease-in-out;
+  }
+
+  button:disabled {
+    background: #f9f9f9;
+    color: #444;
+  }
+
+  #link {
+    display: block;
+    text-align: center;
+    max-width: 200px;
+    margin: 20px auto;
+    color: #fff;
+  }
+
+  .fas {
+    padding: 4px;
+  }
+

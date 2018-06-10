@@ -1,0 +1,10 @@
+#loading{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/eid-gift-card-ng-pwa.appspot.com/o/loading-sm.svg?alt=media&token=ce90be38-8f35-4f01-9b11-e8d34370210e');
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 9999;
+    display: block;
+}

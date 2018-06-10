@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: #f9f9f9 !important;
+    direction: rtl;
+    /* background: url('https://firebasestorage.googleapis.com/v0/b/eid-gift-card-ng-pwa.appspot.com/o/bg.png?alt=media&token=00d30277-e761-419d-91ea-4ebbf41d1662') no-repeat left; */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Harmattan', sans-serif !important;
+  }
+  .footer-container{
+    margin: 0 auto;
+    padding: 10px;
+    text-align: center;
+  }
+.by{
+  color: #5DC2BB;
+  text-align: center; 
+}
