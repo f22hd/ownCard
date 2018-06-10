@@ -42,15 +42,16 @@ export class AppComponent {
 
   ngOnInit() {
     this.myLoading.show();
+    // hide loading indicator after 1 second
     setTimeout(() => {
       this.myLoading.dismiss();
     }, 1000);
-
   }
 
   get stateName() {
     return this.show ? 'show' : 'hide';
   }
+  
   updateImg() {
     if (this.selectedCardTemplate.path) {
       this.show = !this.show;
@@ -61,48 +62,49 @@ export class AppComponent {
       }, 500);
 
     }
-  };
+  }
+
   download(): void {
     this.isDownloading = true;
     this.myLoading.show();
 
-    const width = 500;
-    const height = 500;
-    let card = document.getElementById("card");
-
-    // create canvas
-    let canvas = <HTMLCanvasElement>document.getElementById('canvas');
-    canvas.setAttribute('width', card.offsetWidth + "");
-    canvas.setAttribute('heigth', card.offsetHeight + "");
-    canvas.setAttribute('class', 'card-container');
-    let context = canvas.getContext('2d');
+    let { canvas, context } = this.getCanvas();
     // image
     let image = new Image();
     image.src = this.imgSrc;
     image.onload = () => {
-      // extend canvas size to get proper resolution
-      let { x, y, color } = this.getXYValues();
 
-      canvas.width = width;
-      canvas.height = height;
-      context.drawImage(image, 0, 0);
-      // text and font
-      context.font = "30px Harmattan"; // font-size font-family
-      context.fillStyle = color;
-      context.fillText(this.name, x, y);
-
-      // update  download link
-      this.downloadImgUrl = canvas.toDataURL('image/png');
-
+      this.makeImage(canvas, context, image);
       // clear
       this.name = "";
       this.isDownloading = false;
       this.myLoading.dismiss();
     }; // end image load event
-
-
-
   }// end download method
+
+  private makeImage(canvas, context, image) {
+    const width = 500;
+    const height = 500;
+    // extend canvas size to get proper resolution
+    let { x, y, color } = this.getXYValues();
+    canvas.width = width;
+    canvas.height = height;
+    context.drawImage(image, 0, 0);
+    // text and font
+    context.font = "30px Harmattan"; // font-size font-family
+    context.fillStyle = color;
+    context.fillText(this.name, x, y);
+    // update download link
+    this.downloadImgUrl = canvas.toDataURL('image/png');
+  }
+
+  private getCanvas() {
+    let card = document.getElementById("card");
+    // create canvas
+    let canvas = <HTMLCanvasElement>document.getElementById('canvas');
+    let context = canvas.getContext('2d');
+    return { canvas, context };
+  }
 
   private getXYValues() {
     let x, y, color;
